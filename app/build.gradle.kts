@@ -1,13 +1,11 @@
 import java.text.SimpleDateFormat
 import java.util.Date
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile // یہ لائن اہم ہے
 
-// یہاں سے plugins بلاک کو بدلیں
 plugins {
     id("com.android.application")
-    // ہم یہاں کوٹلن کو دوبارہ ID سے نہیں بلکہ اپلائی کے طریقے سے استعمال کریں گے
+    id("org.jetbrains.kotlin.android") // اسے دوبارہ ID کے ساتھ لکھیں
 }
-
-apply(plugin = "org.jetbrains.kotlin.android")
 
 android {
     compileSdk = 34
@@ -41,9 +39,11 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    // یہاں سے kotlinOptions کو ہٹا دیں اگر پھر بھی ایرر آئے
-    kotlinOptions {
-        jvmTarget = "17"
+    // یہاں تبدیلی کی گئی ہے: 'kotlinOptions' کی جگہ اب یہ استعمال کریں
+    tasks.withType<KotlinCompile>().configureEach {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
     }
 
     buildFeatures {
