@@ -1,9 +1,10 @@
 import java.text.SimpleDateFormat
 import java.util.Date
 
+// یہاں تبدیلی کی گئی ہے: سادہ پلگ انز
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    kotlin("android") 
 }
 
 android {
@@ -38,7 +39,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    // یہاں میں نے تبدیلی کی ہے تاکہ وہ ایرر ختم ہو جائے
+    // یہ حصہ اب ایرر نہیں دے گا
     kotlinOptions {
         jvmTarget = "17"
     }
