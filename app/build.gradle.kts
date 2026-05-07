@@ -1,11 +1,13 @@
 import java.text.SimpleDateFormat
 import java.util.Date
 
-// یہاں تبدیلی کی گئی ہے: سادہ پلگ انز
+// یہاں سے plugins بلاک کو بدلیں
 plugins {
     id("com.android.application")
-    kotlin("android") 
+    // ہم یہاں کوٹلن کو دوبارہ ID سے نہیں بلکہ اپلائی کے طریقے سے استعمال کریں گے
 }
+
+apply(plugin = "org.jetbrains.kotlin.android")
 
 android {
     compileSdk = 34
@@ -39,7 +41,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    // یہ حصہ اب ایرر نہیں دے گا
+    // یہاں سے kotlinOptions کو ہٹا دیں اگر پھر بھی ایرر آئے
     kotlinOptions {
         jvmTarget = "17"
     }
